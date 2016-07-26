@@ -1,6 +1,7 @@
 const CompareNumber = require('./CompareNumber');
+
 function getResult(originNumber, guessNuber) {
-    const compareNumber = CompareNumber.compareNumber(originNumber, guessNuber);
-    return compareNumber;
+    const Comparenumber = CompareNumber.compareNumber(originNumber, guessNuber);
+    return Comparenumber;
 }
 module.exports = getResult;

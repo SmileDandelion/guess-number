@@ -1,21 +1,20 @@
-class CompareNumber{
-    constructor(){
-        this.numberA = 0;
-        this.numberB = 0;
-    }
-    const compareNumber=(originNumber,guessNuber)=>{
-        const originNumber = originNumber.split('');
-        const guessNumber = guessNuber.split('');
-        originNumber.forEach(num=>{
-            const index = originNumber.indexOf(num);
-            if(num === guessNumber[index]){
-                this.numberA++;
+class CompareNumber {
+
+    static compareNumber(originNumber, guessNuber) {
+        const originnumber = originNumber.split('');
+        const guessnumber = guessNuber.split('');
+        let a = 0;
+        let  b = 0 ;
+        originnumber.forEach(num=> {
+            const index = originnumber.indexOf(num);
+            if (num === guessnumber[index]) {
+                a++;
             }
-            else if(guessNumber.find(a=>a===num)){
-                this.numberB++;
+            else if (guessnumber.find(a=>a === num)) {
+                b++;
             }
         });
-        return `${this.numberA}A${this.numberB}B`;
+        return `${a}A${b}B`;
     }
 }
 
