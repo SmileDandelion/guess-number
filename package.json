@@ -1,0 +1,22 @@
+{
+  "name": "guess-number",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmileDandelion/guess-number.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SmileDandelion/guess-number/issues"
+  },
+  "homepage": "https://github.com/SmileDandelion/guess-number#readme",
+  "devDependencies": {
+    "jasmine": "^2.4.1"
+  }
+}
