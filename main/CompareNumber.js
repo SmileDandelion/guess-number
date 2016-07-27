@@ -1,8 +1,8 @@
 class CompareNumber {
 
-    static compareNumber(originNumber, guessNuber) {
+    static compareNumber(originNumber, guessNumber) {
         const originnumber = originNumber.split('');
-        const guessnumber = guessNuber.split('');
+        const guessnumber = guessNumber.split('');
         let a = 0;
         let  b = 0 ;
         originnumber.forEach(num=> {
