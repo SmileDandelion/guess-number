@@ -1,34 +1,44 @@
 const AnswerGenerator = require('./answerGenerator');
 const CompareNumber = require('./CompareNumber');
-const scanf = require('scanf');
+const stdin = require('mock-stdin');
 class wholeGame {
-    static game() {
+    constructor() {
+        this.count = 6;
+        this.answer = AnswerGenerator.generate();
+
         const isUnique = (item, index, array) => {
             return index === array.lastIndexOf(item);
         };
-        console.log('Welcome!' + '\n');
-        const answer = AnswerGenerator.generate();
-        console.log(answer);
-        for (var i = 0; i < 6; i++) {
-            console.log(`Please input your number(${6-i}): `);
-            const input = scanf('%s');
+
+        process.stdin.resume();
+        process.stdin.setEncoding('utf8');
+        console.log(this.answer);
+        console.log('Welcome!\n');
+        console.log(`Please input your number(${this.count}):`);
+
+        process.stdin.on('data', (input)=> {
             const isRepeat = input.split('').every(isUnique);
             if (!isRepeat) {
                 console.log('Cannot input duplicate numbers!');
+                console.log(`Please input your number(${this.count}):`);
+            } else if (this.answer === input.trim()) {
+                console.log('Congratulations!');
+                process.exit();
             } else {
-                let text = CompareNumber.compareNumber(answer, input);
-                if (text === '4A0B') {
-                    console.log('Congratulations!');
-                    return;
-                }
-                else {
-                    console.log(text);
-                }
+                let text = CompareNumber.compareNumber(this.answer, input);
+
+                console.log(text);
+                this.count--;
+                if (this.count === 0) {
+                    console.log('Game Over\n');
+                    console.log(`Answer:${this.answer}`);
+                    process.exit();
+                }else
+                console.log(`Please input your number(${this.count}):`);
             }
-        }
-        console.log('Game Over');
+        });
     }
 }
 
-wholeGame.game();
+new wholeGame();
 module.exports = wholeGame;

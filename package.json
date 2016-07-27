@@ -20,6 +20,6 @@
     "jasmine": "^2.4.1"
   },
   "dependencies": {
-    "scanf": "^0.7.2"
-  }
+    "mock-stdin": "^0.3.0
+	}
 }
